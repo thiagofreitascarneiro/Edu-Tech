@@ -4,21 +4,14 @@
   <div v-else-if="error">Erro ao carregar conteúdo</div>
 
   <div v-else>
-    <!-- <h2>{{ content.title }}</h2>
-    <p>{{ content.description }}</p>
-    <p>Conteúdo: {{ content.format }}</p> -->
 
     <VideoContent v-if="content.format === 'mp4'" :content="content" />
 
     <!-- Exibição de imagem -->
-    <div v-else-if="content.format === 'image'">
-      <img :src="content.url" :alt="content.title" />
-    </div>
+    <ImageContent v-else-if="content.format === 'jpg' || content.format === 'png'" :content="content" />
 
     <!-- Exibição de PDF -->
-    <div v-else-if="content.format === 'pdf'">
-      <a :href="content.url" target="_blank">Abrir PDF</a>
-    </div>
+    <PdfContent v-else-if="content.format === 'pdf'" :content="content" />
 
     <!-- Exibição de links -->
     <div v-else-if="content.format === 'link'">
@@ -29,12 +22,16 @@
 
 <script>
 import { gql } from '@apollo/client/core';
+import ImageContent from './ImageContent.vue';
+import PdfContent from './PdfContent.vue';
 import VideoContent from './VideoContent.vue';
 
 export default {
   name: 'ContentDetail',
   components: {
-    VideoContent
+    VideoContent,
+    PdfContent,
+    ImageContent
   },
   props: {
     contentId: {

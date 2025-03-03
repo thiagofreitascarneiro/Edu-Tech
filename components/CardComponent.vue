@@ -117,7 +117,7 @@ export default {
 .likes {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .learn-more {

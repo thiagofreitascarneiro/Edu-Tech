@@ -36,9 +36,9 @@
         </div>
         <ContentDetail v-if="selectedContentId" :contentId="selectedContentId" />
 
-        <div> 
+        <div class="wrapper-btn" > 
         
-          <button class="btn-progress" @click="increaseProgress">Concluir</button> 
+          <button class="btn" @click="increaseProgress">Concluir</button> 
         </div>
       </div>
     </div>
@@ -172,27 +172,11 @@ export default {
   border-radius: 8px;
   padding: 1.3rem;
   height: 1300px;
+  width: 700px;
 }
 
-.btn-progress {
-  background-color: var(--color-primary);
-  color: white;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-progress:hover {
-  background-color: var(--color-secondary);
-}
-
-.bar-progress {
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
+.wrapper-btn {
+  margin-top: 45px;
 }
 
 .progress-percentage {
