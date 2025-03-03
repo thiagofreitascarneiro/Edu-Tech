@@ -1,26 +1,60 @@
 <template>
   <div class="page-container">
-    <h1>Cousers</h1>
-    <div class="content-list">
-      <CardComponent
-        v-for="content in contentList"
-        :key="content.id"
-        :title="content.title"
-        :description="content.description"
-        :cover="content.cover"
-        :type="content.type"
-        :total_likes="content.total_likes"
-      />
+  
+    <div class="wrapper-content">
+      <div class="content-list">
+        <div>
+          <h1>Cousers</h1>
+        </div>
+
+        <div>
+
+          <CardComponent
+            v-for="content in contentList"
+            :key="content.id"
+            :title="content.title"
+            :description="content.description"
+            :cover="content.cover"
+            :type="content.type"
+            :total_likes="content.total_likes"
+            @contentClicked="showContentDetail"
+            :id="content.id"
+          />
+        </div>
+      
+      
+      </div>
+
+      <div class="content-selected">  
+        <div class="bar-progress">
+          <div><h2>Barra de Progresso</h2></div>
+          <div> 
+            <ProgressBar :progress="progress" />
+            <div class="progress-percentage">{{ progress }}% <span>Concluido</span></div>
+          </div>
+         
+        </div>
+        <ContentDetail v-if="selectedContentId" :contentId="selectedContentId" />
+
+        <div> 
+        
+          <button class="btn-progress" @click="increaseProgress">Concluir</button> 
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import CardComponent from '~/components/CardComponent.vue';
+import ContentDetail from '~/components/ContentDetail.vue';
+import ProgressBar from '~/components/ProgressBar.vue';
 
 export default {
   components: {
     CardComponent,
+    ContentDetail,
+    ProgressBar
   },
   data() {
     return {
@@ -91,8 +125,22 @@ export default {
           'company_id': '5e444e9c-66a9-4004-bde5-db5e614e5c34',
           'created_at': '2025-02-03T22:41:50.798Z'
         }
-      ]
+      ],
+      selectedContentId: '4372ebd1-2ee8-4501-9ed5-549df46d0eb0',
+      progress: 0
     };
+  }, 
+  methods: {
+    showContentDetail(contentId) {
+      this.selectedContentId = contentId;
+    },
+    increaseProgress() {
+      if (this.progress < 90) {
+        this.progress += 18; 
+      } else if (this.progress == 90) {
+        this.progress += 10; 
+      }
+    }
   }
 };
 
@@ -102,6 +150,53 @@ export default {
 .page-container { 
   background-color: var( --background-color); 
   min-height: 100vh;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
+
+.wrapper-content {
+  display: flex;
+  padding: 1.3rem;
+  justify-content: space-between;
+  align-items: self-start;
+  gap: 40px;
+}
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-selected {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 1.3rem;
+  height: 1300px;
+}
+
+.btn-progress {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-progress:hover {
+  background-color: var(--color-secondary);
+}
+
+.bar-progress {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.progress-percentage {
+  margin: 10px;;
+}
+
 </style>

@@ -10,8 +10,8 @@
       
       <div class="card-footer">
         <div class="likes"> {{ total_likes }} Likes</div>
-        <a href="#" class="learn-more">
-          Learn More
+        <a href="#" @click.prevent="handleClick" class="learn-more">
+          Clique Aqui
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -29,7 +29,14 @@ export default {
     description: String,
     cover: String,
     type: String,
-    total_likes: Number
+    total_likes: Number,
+    id: String
+  },
+  methods: {
+    handleClick() {
+      console.log('fui clciado', this.id);
+      this.$emit('contentClicked', this.id);
+    }
   }
 };
 </script>
