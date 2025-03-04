@@ -1,69 +1,97 @@
-# educ-tech
+# Edu-Tech
 
-## Build Setup
+Edu-Tech é uma plataforma educacional interativa construída com Vue.js e Nuxt.js para o frontend, e um backend baseado em Node.js com GraphQL, PostgreSQL e Redis.
 
-```bash
-# install dependencies
-$ npm install
+## Como rodar a aplicação
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+### Frontend
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+1. Clone o repositório frontend:
 
-# generate static project
-$ npm run generate
+   ```bash
+   git clone <repo_url>
+   ```
+
+2. Acesse o diretório do frontend:
+
+   ```bash
+   cd EDU-TECH
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+4. Como o backend roda na porta 3000, configurei o frontend para rodar na porta 3001:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse a aplicação no navegador:
+   ```bash
+   http://localhost:3001
+   ```
+
+### Backend
+
+1. Clone o repositório backend:
+
+   ```bash
+   git clone https://github.com/skore-io/challenge
+   ```
+
+2. Acesse o diretório do backend:
+
+   ```bash
+   cd backend
+   ```
+
+3. Instale o Docker e o Docker Compose, caso ainda não tenha.
+
+4. Suba os serviços necessários (PostgreSQL e Redis):
+
+   ```bash
+   docker-compose up -d
+   ```
+
+5. Instale as dependências do projeto:
+
+   ```bash
+   nvm use && npm install
+   ```
+
+6. Configure o banco de dados:
+
+   ```bash
+   npm run db:migrate && npm run db:seed
+   ```
+
+7. Inicie o servidor:
+
+   ```bash
+   npm run start:dev
+   ```
+
+8. Acesse o Playground do GraphQL:
+   👉 [http://localhost:3000/graphql](http://localhost:3000/graphql)
+
+### Corrigindo o CORS no backend
+
+Para permitir que o frontend consuma a API, foi necessário configurar o CORS no backend com a seguinte linha de código:
+
+```javascript
+app.enableCors({
+  origin: 'http://localhost:3001',
+})
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+### Rodando os testes
 
-## Special Directories
+1. No Front-End, para rodar os testes:
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+   ```bash
+   npm run test
+   ```
