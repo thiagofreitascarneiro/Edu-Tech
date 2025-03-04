@@ -62,7 +62,7 @@ export default {
   width: 100%;
   max-width: 620px;
   margin: 16px auto;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 @media (min-width: 768px) {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import LinkContent from '~/components/LinkContent.vue';
+import LinkContent from '~/components/Content/LinkContent.vue';
 
 describe('LinkContent', () => {
   const content = {

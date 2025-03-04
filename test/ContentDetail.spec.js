@@ -1,31 +1,31 @@
-import ContentDetail from '@/components/ContentDetail.vue';
-import ImageContent from '@/components/ImageContent.vue';
-import LinkContent from '@/components/LinkContent.vue';
-import PdfContent from '@/components/PdfContent.vue';
-import VideoContent from '@/components/VideoContent.vue';
+import ContentDetail from '@/components/Content/ContentDetail.vue';
 import { shallowMount } from '@vue/test-utils';
+import ImageContent from '~/components/Content/ImageContent.vue';
+import LinkContent from '~/components/Content/LinkContent.vue';
+import PdfContent from '~/components/Content/PdfContent.vue';
+import VideoContent from '~/components/Content/VideoContent.vue';
 
 jest.mock('@/components/Loader.vue', () => ({
   name: 'Loader',
   render: () => null
 }));
 
-jest.mock('@/components/VideoContent.vue', () => ({
+jest.mock('@/components/Content/VideoContent.vue', () => ({
   name: 'VideoContent',
   render: () => null
 }));
 
-jest.mock('@/components/ImageContent.vue', () => ({
+jest.mock('@/components/Content/ImageContent.vue', () => ({
   name: 'ImageContent',
   render: () => null
 }));
 
-jest.mock('@/components/PdfContent.vue', () => ({
+jest.mock('@/components/Content/PdfContent.vue', () => ({
   name: 'PdfContent',
   render: () => null
 }));
 
-jest.mock('@/components/LinkContent.vue', () => ({
+jest.mock('@/components/Content/LinkContent.vue', () => ({
   name: 'LinkContent',
   render: () => null
 }));

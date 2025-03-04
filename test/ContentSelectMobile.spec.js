@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ContentSelect from '~/components/ContentSelectMobile.vue';
+import ContentSelect from '~/components/Content/ContentSelectMobile.vue';
 
 describe('ContentSelect.vue', () => {
   let wrapper;

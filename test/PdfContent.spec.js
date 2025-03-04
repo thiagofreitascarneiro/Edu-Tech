@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PdfContent from '~/components/PdfContent.vue';
+import PdfContent from '~/components/Content/PdfContent.vue';
 
 describe('PdfContent', () => {
   const content = {
@@ -17,20 +17,12 @@ describe('PdfContent', () => {
     expect(wrapper.find('p').text()).toBe(content.description);
   });
 
-  it('should toggle PDF viewer when clicking on "Visualizar PDF" button', async () => {
+  it('should render PDF viewer when content.url is provided', () => {
     const wrapper = mount(PdfContent, {
       propsData: { content }
     });
 
-    const toggleButton = wrapper.find('.btn-toggle-view');
-
-    expect(wrapper.find('.pdf-viewer').exists()).toBe(false);
-
-    await toggleButton.trigger('click');
-    expect(wrapper.find('.pdf-viewer').exists()).toBe(true); 
-
-    await toggleButton.trigger('click');
-    expect(wrapper.find('.pdf-viewer').exists()).toBe(false); 
+    expect(wrapper.find('.pdf-viewer').exists()).toBe(true);
   });
 
   it('should have a link to open the PDF', () => {

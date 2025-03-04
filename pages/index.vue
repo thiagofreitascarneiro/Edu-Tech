@@ -193,6 +193,8 @@ h1 {
 .content-list {
   display: flex;
   flex-direction: column;
+  width: 100%; 
+  max-width: 500px;
 }
 
 .content-selected {
@@ -234,6 +236,15 @@ h1 {
   background-color: var(--color-white);
   border-radius: 8px;
   padding: 1.3rem;
+  width: 700px;
+}
+
+@media (max-width: 768px) {
+  .bar-progress, .content-detail-wrapper {
+    width: 95%; 
+    max-width: 100%; 
+    padding: 1rem;
+  }
 }
 
 .content-detail-wrapper {

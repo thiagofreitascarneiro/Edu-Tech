@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import ImageContent from '~/components/ImageContent.vue';
+import ImageContent from '~/components/Content/ImageContent.vue';
 
 describe('ImageContent', () => {
   const content = {

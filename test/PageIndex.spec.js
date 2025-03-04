@@ -1,7 +1,9 @@
+jest.mock('~/assets/image/uol-edtech.webp', () => 'mock-image-path');
+
 import { mount } from '@vue/test-utils';
 import CardComponent from '~/components/CardComponent.vue';
-import ContentDetail from '~/components/ContentDetail.vue';
-import ContentSelectMobile from '~/components/ContentSelectMobile.vue';
+import ContentDetail from '~/components/Content/ContentDetail.vue';
+import ContentSelectMobile from '~/components/Content/ContentSelectMobile.vue';
 import ProgressBar from '~/components/ProgressBar.vue';
 import MainPage from '~/pages/index.vue';
 

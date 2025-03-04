@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VideoContent from '~/components/VideoContent.vue';
+import VideoContent from '~/components/Content/VideoContent.vue';
 
 describe('VideoContent', () => {
   const content = {
