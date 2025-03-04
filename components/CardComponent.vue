@@ -49,7 +49,7 @@ export default {
   box-shadow: var(--shadow);
   border-radius: 8px;
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
   margin: 16px auto;
   overflow: hidden;
 }
@@ -80,20 +80,23 @@ export default {
 }
 
 .card-content {
+  display: flex;
+  flex-direction: column;
   flex: 2;
   padding: 16px;
 }
 
 .badge {
+  display: inline-flex;
+  align-items: center; 
   background: var(--color-primary);
   color: var(--color-white);
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 12px;
-  display: inline-block;
   margin-bottom: 8px;
+  max-width: fit-content; 
 }
-
 .card-title {
   font-size: 18px;
   font-weight: 600;
@@ -112,6 +115,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .likes {

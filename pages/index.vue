@@ -32,7 +32,15 @@
             <ProgressBar :progress="progress" />
             <div class="progress-percentage">{{ progress }}% <span>Concluido</span></div>
           </div>
-         
+        </div>
+
+        <div class="content-select-wrapper">
+          <ContentSelectMobile
+            v-if="contentList.length" 
+            :contentList="contentList" 
+            :selectedContentId="selectedContentId" 
+            @contentSelected="showContentDetail"
+          />
         </div>
 
         <div class="content-detail-wrapper"> 
@@ -53,13 +61,15 @@
 <script>
 import CardComponent from '~/components/CardComponent.vue';
 import ContentDetail from '~/components/ContentDetail.vue';
+import ContentSelectMobile from '~/components/ContentSelectMobile.vue';
 import ProgressBar from '~/components/ProgressBar.vue';
 
 export default {
   components: {
     CardComponent,
     ContentDetail,
-    ProgressBar
+    ProgressBar,
+    ContentSelectMobile
   },
   data() {
     return {
@@ -153,11 +163,23 @@ export default {
 
 <style scoped>
 .page-container { 
-  background-color: var( --background-color); 
+  background-color: var(--background-color); 
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
 }
+
+/* Responsividade */
+/* @media (min-width: 768px) {
+  .page-container {
+    flex-direction: row; 
+    justify-content: center;
+    padding: 2rem;
+  }
+} */
 
 h1 {
   font-size: var(--font-size-title);
@@ -171,14 +193,46 @@ h1 {
   gap: 40px;
 }
 
+@media (max-width: 768px) { 
+  .wrapper-content {
+    padding: 0rem;
+  }
+}
+
 .content-list {
   display: flex;
   flex-direction: column;
 }
 
 .content-selected {
-  height: 1300px;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .content-selected {
+    max-width: 100%;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-select-wrapper {
+    display: block;
+  }
+  
+  .content-list {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .content-select-wrapper {
+    display: none;
+  }
 }
 
 .wrapper-btn {
