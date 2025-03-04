@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading">Loading...</div>
+  <Loader v-if="loading" />
 
   <div v-else-if="error">Erro ao carregar conteúdo</div>
 
@@ -7,13 +7,10 @@
 
     <VideoContent v-if="content.format === 'mp4'" :content="content" />
 
-    <!-- Exibição de imagem -->
     <ImageContent v-else-if="content.format === 'jpg' || content.format === 'png'" :content="content" />
 
-    <!-- Exibição de PDF -->
     <PdfContent v-else-if="content.format === 'pdf'" :content="content" />
 
-    <!-- Exibição de links -->
     <LinkContent v-else-if="!content.format && content.url" :content="content" />
   </div>
 </template>
@@ -22,6 +19,7 @@
 import { gql } from '@apollo/client/core';
 import ImageContent from './ImageContent.vue';
 import LinkContent from './LinkContent.vue';
+import Loader from './Loader.vue';
 import PdfContent from './PdfContent.vue';
 import VideoContent from './VideoContent.vue';
 
@@ -31,7 +29,8 @@ export default {
     VideoContent,
     PdfContent,
     ImageContent,
-    LinkContent
+    LinkContent,
+    Loader
   },
   props: {
     contentId: {
