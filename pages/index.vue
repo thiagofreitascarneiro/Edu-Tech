@@ -172,15 +172,6 @@ export default {
   padding: 1rem;
 }
 
-/* Responsividade */
-/* @media (min-width: 768px) {
-  .page-container {
-    flex-direction: row; 
-    justify-content: center;
-    padding: 2rem;
-  }
-} */
-
 h1 {
   font-size: var(--font-size-title);
 }
