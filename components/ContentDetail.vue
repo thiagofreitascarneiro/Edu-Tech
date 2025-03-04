@@ -14,15 +14,14 @@
     <PdfContent v-else-if="content.format === 'pdf'" :content="content" />
 
     <!-- Exibição de links -->
-    <div v-else-if="content.format === 'link'">
-      <a :href="content.url" target="_blank">Acessar conteúdo</a>
-    </div>
+    <LinkContent v-else-if="!content.format && content.url" :content="content" />
   </div>
 </template>
 
 <script>
 import { gql } from '@apollo/client/core';
 import ImageContent from './ImageContent.vue';
+import LinkContent from './LinkContent.vue';
 import PdfContent from './PdfContent.vue';
 import VideoContent from './VideoContent.vue';
 
@@ -31,7 +30,8 @@ export default {
   components: {
     VideoContent,
     PdfContent,
-    ImageContent
+    ImageContent,
+    LinkContent
   },
   props: {
     contentId: {

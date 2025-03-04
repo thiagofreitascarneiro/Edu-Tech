@@ -2,24 +2,45 @@
   <div class="pdf-content">
     <h3>{{ content.title }}</h3>
     <p>{{ content.description }}</p>
-  
-    <!-- Link para abrir o PDF -->
-    <a :href="content.url" target="_blank" class="btn-view-pdf">Abrir PDF</a>
-  
-    <!-- Link para download, se permitido -->
-    <div v-if="content.allow_download">
-      <a :href="content.url" download :title="'Download ' + content.title" class="btn-download-pdf">Baixar PDF</a>
+
+    <div class="pdf-buttons"> 
+      <button @click="togglePdfViewer" class="btn-toggle-view">
+        {{ showPdf ? "Ocultar PDF" : "Visualizar PDF" }}
+      </button>
+
+      <a :href="content.url" target="_blank" class="btn-view-pdf">Abrir PDF</a>
     </div>
+
+    <div v-if="showPdf" class="pdf-viewer">
+      <iframe 
+        v-if="content.url" 
+        :src="content.url" 
+        frameborder="0" 
+        width="100%" 
+        height="500px">
+      </iframe>
+    </div>
+   
   </div>
 </template>
   
 <script>
 export default {
   name: 'PdfContent',
+  data() {
+    return {
+      showPdf: false 
+    };
+  },
   props: {
     content: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    togglePdfViewer() {
+      this.showPdf = !this.showPdf;
     }
   }
 };
@@ -37,23 +58,50 @@ export default {
     font-size: 1.5rem;
     margin-bottom: 10px;
   }
-  
-  .pdf-content .btn-view-pdf,
-  .pdf-content .btn-download-pdf {
-    display: inline-block;
-    margin: 5px 0;
+
+  .pdf-viewer {
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .pdf-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .btn-toggle-view {
+    display: block;
+    margin: 10px 0;
     padding: 10px 20px;
     background-color: var(--color-primary);
     color: white;
+    border: none;
     border-radius: 5px;
-    text-decoration: none;
+    cursor: pointer;
     font-weight: bold;
-    text-align: center;
+    margin-top: 1.3rem;
+  }
+
+  .btn-toggle-view:hover {
+    background-color: var(--color-secondary);
   }
   
-  .pdf-content .btn-view-pdf:hover,
-  .pdf-content .btn-download-pdf:hover {
-    background-color: var(--color-primary-dark);
+   .btn-view-pdf 
+   {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1.3rem;
   }
+  
   </style>
   

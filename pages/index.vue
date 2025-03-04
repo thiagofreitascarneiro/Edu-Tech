@@ -34,12 +34,17 @@
           </div>
          
         </div>
-        <ContentDetail v-if="selectedContentId" :contentId="selectedContentId" />
 
-        <div class="wrapper-btn" > 
-        
-          <button class="btn" @click="increaseProgress">Concluir</button> 
+        <div class="content-detail-wrapper"> 
+          <div> 
+            <ContentDetail v-if="selectedContentId" :contentId="selectedContentId" /> 
+          </div>
+
+          <div class="wrapper-btn" > 
+            <button class="btn" @click="increaseProgress">Concluir</button> 
+          </div>
         </div>
+       
       </div>
     </div>
   </div>
@@ -154,6 +159,10 @@ export default {
   justify-content: center;
 }
 
+h1 {
+  font-size: var(--font-size-title);
+}
+
 .wrapper-content {
   display: flex;
   padding: 1.3rem;
@@ -168,15 +177,27 @@ export default {
 }
 
 .content-selected {
-  background-color: var(--color-white);
-  border-radius: 8px;
-  padding: 1.3rem;
   height: 1300px;
   width: 700px;
 }
 
 .wrapper-btn {
   margin-top: 45px;
+}
+
+.bar-progress, .content-detail-wrapper {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 1.3rem;
+}
+
+.content-detail-wrapper {
+  margin-top: 52px;
+}
+
+
+.bar-progress h2 {
+  font-size: var(--font-size-title);
 }
 
 .progress-percentage {

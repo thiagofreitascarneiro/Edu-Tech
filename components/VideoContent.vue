@@ -10,9 +10,9 @@
   
     <h2>{{ content.title }}</h2>
     <p>{{ content.description }}</p>
-    <p>Conteúdo: {{ content.format }}</p>
+    <p class="content-format">Conteúdo: {{ content.format }}</p>
   
-    <div v-if="content.metadata">
+    <div  v-if="content.metadata">
       <p><strong>Duração:</strong> {{ content.metadata.duration }} segundos</p>
       <p><strong>Resolução:</strong> {{ content.metadata.resolution }}</p>
     </div>
@@ -38,6 +38,10 @@ export default {
     max-height: 400px; 
     border-radius: 8px;
     margin-bottom: 1em;
+  }
+
+  .content-format {
+    margin-top: 10px;
   }
   
   video {

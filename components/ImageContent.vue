@@ -1,7 +1,7 @@
 <template>
   <div class="image-container">
     <h3>{{ content.title }}</h3>
-    <p>{{ content.description }}</p>
+    <p class="image-description">{{ content.description }}</p>
     <img :src="content.url" :alt="content.title" class="image-content" />
   </div>
 </template>
@@ -19,8 +19,9 @@ export default {
 </script>
   
   <style scoped>
-  .image-container {
-   
+
+  .image-description {
+    margin-top: 5px;
   }
   
   .image-content {
