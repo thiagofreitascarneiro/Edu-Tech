@@ -17,11 +17,11 @@
 
 <script>
 import { gql } from '@apollo/client/core';
-import ImageContent from './ImageContent.vue';
-import LinkContent from './LinkContent.vue';
-import Loader from './Loader.vue';
-import PdfContent from './PdfContent.vue';
-import VideoContent from './VideoContent.vue';
+import ImageContent from '../Content/ImageContent.vue';
+import LinkContent from '../Content/LinkContent.vue';
+import PdfContent from '../Content/PdfContent.vue';
+import VideoContent from '../Content/VideoContent.vue';
+import Loader from '../Loader.vue';
 
 export default {
   name: 'ContentDetail',
@@ -85,7 +85,6 @@ export default {
 
   },
   created() {
-    console.log(this.content, this.contentId, 'caiu nno created');
     this.fetchContent();
   }
 };

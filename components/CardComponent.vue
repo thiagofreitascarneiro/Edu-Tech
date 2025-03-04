@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <div class="card-image" v-if="cover">
-      <img :src="cover" :alt="title" />
+    <div class="card-image">
+      <img :src="cover || require('@/assets/image/uol-edtech.webp')" :alt="title" />
     </div>
     <div class="card-content">
-      <div class="badge">{{ type }}</div>
+      <div class="badge">{{ translateType(type) }}</div>
       <h4 class="card-title">{{ title }}</h4>
       <p class="card-description" v-if="description">{{ description }}</p>
       
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'CardComponent',
   props: {
@@ -34,10 +36,19 @@ export default {
   },
   methods: {
     handleClick() {
-      console.log('fui clciado', this.id);
       this.$emit('contentClicked', this.id);
+    },
+    translateType(type) {
+      const translations = {
+        image: 'imagem',
+        video: 'vídeo',
+        pdf: 'PDF',
+        link: 'link'
+      };
+      return translations[type] || type;
     }
   }
+  
 };
 </script>
 

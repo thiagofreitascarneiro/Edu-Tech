@@ -4,16 +4,12 @@
     <p>{{ content.description }}</p>
 
     <div class="pdf-buttons"> 
-      <button @click="togglePdfViewer" class="btn-toggle-view">
-        {{ showPdf ? "Ocultar PDF" : "Visualizar PDF" }}
-      </button>
 
       <a :href="content.url" target="_blank" class="btn-view-pdf">Abrir PDF</a>
     </div>
 
-    <div v-if="showPdf" class="pdf-viewer">
+    <div v-if="content.url" class="pdf-viewer">
       <iframe 
-        v-if="content.url" 
         :src="content.url" 
         frameborder="0" 
         width="100%" 
@@ -27,22 +23,12 @@
 <script>
 export default {
   name: 'PdfContent',
-  data() {
-    return {
-      showPdf: false 
-    };
-  },
   props: {
     content: {
       type: Object,
       required: true
     }
   },
-  methods: {
-    togglePdfViewer() {
-      this.showPdf = !this.showPdf;
-    }
-  }
 };
 </script>
   

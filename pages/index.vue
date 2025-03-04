@@ -4,7 +4,7 @@
     <div class="wrapper-content">
       <div class="content-list">
         <div>
-          <h1>Cousers</h1>
+          <h1>Cursos</h1>
         </div>
 
         <div>
@@ -60,8 +60,8 @@
 
 <script>
 import CardComponent from '~/components/CardComponent.vue';
-import ContentDetail from '~/components/ContentDetail.vue';
-import ContentSelectMobile from '~/components/ContentSelectMobile.vue';
+import ContentDetail from '~/components/Content/ContentDetail.vue';
+import ContentSelectMobile from '~/components/Content/ContentSelectMobile.vue';
 import ProgressBar from '~/components/ProgressBar.vue';
 
 export default {
