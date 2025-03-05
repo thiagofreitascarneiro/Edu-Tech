@@ -1,5 +1,8 @@
 <template>
   <div v-if="content.format === 'mp4'">
+
+    <h3>{{ content.title }}</h3>
+    <p>{{ content.description }}</p>
     <video
       controls
       :src="content.url"
@@ -7,9 +10,7 @@
       :title="content.title"
       class="video-content"
     ></video>
-  
-    <h2>{{ content.title }}</h2>
-    <p>{{ content.description }}</p>
+   
     <p class="content-format">Conteúdo: {{ content.format }}</p>
   
     <div  v-if="content.metadata">
@@ -49,16 +50,15 @@ export default {
     height: auto;
     border-radius: 8px;
   }
-  
-  h2 {
-    font-size: 2.3rem;
-    margin-top: 1em;
-    color: #333;
+
+  h3 {
+    margin-bottom: 15px;
+    font-size: var(--font-size-subtitle);
   }
   
   p {
     font-size: 1rem;
-    color: #555;
+    color: var(--color-paragraph);
   }
   
   @media (max-width: 768px) {
@@ -71,7 +71,7 @@ export default {
       max-width: 100%;
     }
   
-    h2 {
+    h3 {
       font-size: 1.25rem;
     }
   

@@ -3,7 +3,6 @@
     <h3>{{ content.title }}</h3>
     <p>{{ content.description }}</p>
 
-    <!-- Se o conteúdo for embutível (is_embeddable: true), exibe no iframe -->
     <div v-if="content.is_embeddable" class="embed-viewer">
       <iframe 
         :src="content.url" 
@@ -13,7 +12,6 @@
       </iframe>
     </div>
 
-    <!-- Caso contrário, exibe o botão para acessar o conteúdo -->
     <div v-else>
       <a :href="content.url" target="_blank" class="btn-view-link">Acessar Conteúdo</a>
     </div>
@@ -47,7 +45,7 @@ export default {
 
 .embed-viewer {
   margin-top: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -57,7 +55,7 @@ export default {
   margin-top: 1.3rem;
   padding: 10px 20px;
   background-color: var(--color-secondary);
-  color: white;
+  color: var(--color-white);
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;

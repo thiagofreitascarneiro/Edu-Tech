@@ -6,6 +6,9 @@
   --color-border: #cbd5e1;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --background-color: #f8f9fa;
+  --color-bar: #e0e0e0;
+  --color-title: #333;
+  --color-paragraph: #555;
 
   --font-family: 'Arial', sans-serif;
   --font-size-base: 16px;

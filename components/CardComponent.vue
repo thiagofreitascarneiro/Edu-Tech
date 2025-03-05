@@ -9,7 +9,7 @@
       <p class="card-description" v-if="description">{{ description }}</p>
       
       <div class="card-footer">
-        <div class="likes"> {{ total_likes }} Likes</div>
+        <div class="likes">👍 {{ total_likes }} </div>
         <a href="#" @click.prevent="handleClick" class="learn-more">
           Clique Aqui
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">

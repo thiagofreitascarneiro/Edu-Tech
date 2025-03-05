@@ -2,7 +2,7 @@ export default {
   ssr: false,
 
   head: {
-    title: 'educ-tech',
+    title: 'edu-tech',
     htmlAttrs: {
       lang: 'en'
     },
@@ -48,6 +48,4 @@ export default {
       }
     }
   },
-  build: {
-  }
 };

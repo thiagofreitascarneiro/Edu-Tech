@@ -47,7 +47,7 @@ export default {
 
   .pdf-viewer {
     margin-top: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     border-radius: 5px;
     overflow: hidden;
   }

@@ -29,7 +29,7 @@ describe('VideoContent', () => {
       propsData: { content }
     });
 
-    expect(wrapper.find('h2').text()).toBe(content.title);
+    expect(wrapper.find('h3').text()).toBe(content.title);
     expect(wrapper.find('p').text()).toContain(content.description);
   });
 

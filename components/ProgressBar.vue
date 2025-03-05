@@ -22,7 +22,7 @@ export default {
     width: 95%;
     max-width: 100%;
     height: 10px;
-    background-color: #e0e0e0;
+    background-color: var(--color-bar);
     border-radius: 5px;
     margin-top: 1em;
     overflow: hidden;

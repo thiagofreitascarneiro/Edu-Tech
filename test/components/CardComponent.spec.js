@@ -35,8 +35,8 @@ describe('CardComponent', () => {
 
   it('renders the total likes correctly', () => {
     const wrapper = mount(CardComponent, { propsData });
-
-    expect(wrapper.find('.likes').text()).toBe(`${propsData.total_likes} Likes`);
+  
+    expect(wrapper.find('.likes').text()).toBe(`👍 ${propsData.total_likes}`);
   });
 
   it('emits "contentClicked" event when link is clicked', async () => {
